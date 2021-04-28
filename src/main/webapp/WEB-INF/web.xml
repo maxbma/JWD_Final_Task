@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>jd2-les02-ex01</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<filter>
+		<filter-name>Filter</filter-name>
+		<filter-class>by.tc.library.controller.filter.EncodingFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>by.tc.library.controller.listener.ContextListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>MyController</servlet-name>
+		<servlet-class>by.tc.library.controller.Controller</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MyController</servlet-name>
+		<url-pattern>/Controller</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>10</session-timeout>
+	</session-config>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>date-tag.tld</taglib-uri>
+			<taglib-location>/WEB-INF/date-tag.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+
+
+</web-app>
